@@ -1,0 +1,33 @@
+@extends('layouts.main')
+
+@section('container')
+
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <h1 class="mb-3">{{ $post->title }}</h1>
+
+                <p>By. <a href="/posts?author={{ $post->author->username }}"
+                        class="text-decoration-none">{{ $post->author->name }}</a>
+                    in <a href="/posts?category={{ $post->category->slug }}"
+                        class="text-decoration-none">{{ $post->category->name }}</a>
+                </p>
+
+                <img src="https://loremflickr.com/1200/400?{{ $post->category->name }}" class="img-fluid mb-3"
+                    alt="{{ $post->category->name }}">
+
+                {{ $post->excerpt }}
+
+                <article class="my-3 fs-5">
+                    <P>{{ $post->body }}</P>
+
+                </article>
+
+                <a href="/posts" class="d-block">Back to Posts</a>
+            </div>
+
+        </div>
+    </div>
+
+
+@endsection
