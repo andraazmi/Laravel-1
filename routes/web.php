@@ -1,10 +1,13 @@
 <?php
 
-use App\Models\Category;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\post;
-use App\Models\User;
+use App\Models\Category;
+
+
 
 Route::get('/', function () {
     return view('home', [
@@ -47,8 +50,23 @@ Route::get('post/{slug}', function ($slug) {
 
 });
 
+Route::get('/categories', function () {
+    return view('categories', [
+        'title' => 'Post Categories',
+        'active' => 'categories',
+        'categories' => Category::all()
+    ]);
+});
+
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
+
+
+
+
 
 // Route::get('/categories/{category:slug}', function (Category $category) {
 //     return view('posts', [
