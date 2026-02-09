@@ -72,7 +72,7 @@
                     </button>
                 </form>
                 <small class="d-block text-center mt-3">
-                    Already Register? <a href="/register">Login Now!</a>
+                    Already Register? <a href="/login">Login Now!</a>
                 </small>
             </main>
         </div>
