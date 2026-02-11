@@ -21,11 +21,11 @@
             @endif
             <main class="form-signin w-100 m-auto">
                 <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
-                <form action="/login" method="POST">
+                <form action="/login" method="post">
                     @csrf
-                    {{-- login --}}
+                    {{-- Email --}}
                     <div class="form-floating">
-                        <input type="email" name='email ' class="form-control @error('email') is-invalid
+                        <input type="email" name="email" class="form-control @error('email') is-invalid
 
                         @enderror" id="email" placeholder="name@example.com" autofocus required
                             value="{{ old('email') }}" />
