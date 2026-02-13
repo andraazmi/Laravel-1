@@ -18,11 +18,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        // User::create([
-        //     'name' => 'Sandika Galih',
-        //     'email' => 'sandikahalih@gmail.com',
-        //     'password' => bcrypt('12345')
-        // ]);
+        User::create([
+            'name' => 'andraha',
+            'username' => 'andra',
+            'email' => 'aaa@gmail.com',
+            'password' => bcrypt('1234567')
+        ]);
         User::factory(3)->create();
 
         Category::create([
@@ -33,6 +34,10 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'personal',
             'slug' => 'personal'
+        ]);
+        Category::create([
+            'name' => 'web-design',
+            'slug' => 'web-design'
         ]);
 
         Post::factory(20)->create();

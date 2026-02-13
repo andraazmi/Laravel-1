@@ -26,8 +26,20 @@
 
 
         <div class="card mb-3 justify-content-center">
-            <img src="https://loremflickr.com/1200/400?{{ $posts[0]->category->name }}" class="card-img-top"
-                alt="{{ $posts[0]->category->name }}">
+            @if ($posts[0]->image)
+
+                <div style="max-height: 400px; overflow:hidden;">
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
+                        class="img-fluid mt-3">
+                </div>
+
+            @else
+
+                <img src="https://loremflickr.com/1200/400?{{ $posts[0]->category->name }}" class="card-img-top"
+                    alt="{{ $posts[0]->category->name }}">
+            @endif
+
+
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">
                         {{ $posts[0]->title }}</a></h3>
@@ -59,9 +71,19 @@
                             <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)"><a
                                     href="posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">
                                     {{ $post->category->name }}</div>
-                            <div class="card-body">
+                            @if ($post->image)
+
+
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                    class="img-fluid mt-3">
+
+                            @else
+
                                 <img src="https://loremflickr.com/1200/700?{{ $post->category->name }}" class="card-img-top"
                                     alt="{{ $post->category->name }}">
+                            @endif
+                            <div class="card-body">
+
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <small class="text-muted">
                                     by. <a href="/posts?author={{ $post->author->username}}"

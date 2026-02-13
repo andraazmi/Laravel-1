@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/posts ') ? 'active' : '' }}" href="/dashboard/posts">
+                    <a class="nav-link {{ Request::is('dashboard/posts* ') ? 'active' : '' }}" href="/dashboard/posts">
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#file-earmark"></use>
                         </svg>
@@ -29,6 +29,24 @@
                 </li>
             </ul>
 
+            @can('admin')
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Administrator</span>
+                </h6>
+
+                <ul class="nav-flex flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/categories* ') ? 'active' : '' }}"
+                            href="/dashboard/categories">
+                            <svg class="bi" aria-hidden="true">
+                                <use xlink:href="#grid-fill"></use>
+                            </svg>
+                            Post Categories
+                        </a>
+                    </li>
+
+                </ul>
+            @endcan
 
 
         </div>
